@@ -12,7 +12,7 @@ export class CommandService {
   private commands: ICommandContractItem[] = [
     CommandContract.RunQueryCommand,
     CommandContract.FillTableCommand,
-    CommandContract.TestTableCommand,
+    CommandContract.TestQueryCommand,
   ];
 
   /**

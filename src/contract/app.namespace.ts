@@ -11,17 +11,17 @@ export namespace CommandContract {
     name: CommandName.FILL_TABLE,
     args: [
       {
-        name: "database",
+        name: "db",
         required: true,
         type: "string",
       },
       {
-        name: "table",
+        name: "t",
         required: true,
         type: "string",
       },
       {
-        name: "count",
+        name: "c",
         required: false,
         type: "number",
       },
@@ -31,11 +31,11 @@ export namespace CommandContract {
   /**
    * Выполнить заранее подготовленный запрос
    */
-  export const TestTableCommand: ICommandContractItem = {
+  export const TestQueryCommand: ICommandContractItem = {
     name: CommandName.TEST_QUERY,
     args: [
       {
-        name: "database",
+        name: "db",
         required: true,
         type: "string",
       },
@@ -49,7 +49,7 @@ export namespace CommandContract {
     name: CommandName.RUN_QUERY,
     args: [
       {
-        name: "database",
+        name: "db",
         required: true,
         type: "string",
       },

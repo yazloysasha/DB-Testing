@@ -5,29 +5,28 @@ import { DatabaseService, ICommand } from "@services";
 /**
  * Обработчик для сообщений из консоли
  */
-
 export const commandController = async (command: ICommand): Promise<void> => {
   const databaseService: DatabaseService = di.container.resolve(
     DatabaseService.name
   );
 
-  const { database, table, count } = command.args;
+  const { db, t, c } = command.args;
 
   switch (command.name) {
     case CommandContract.FillTableCommand.name:
       await databaseService.fillTable({
-        database,
-        table,
-        count: count ? Number(count) : undefined,
+        database: db,
+        table: t,
+        count: c ? Number(c) : undefined,
       });
       break;
 
-    case CommandContract.TestTableCommand.name:
-      await databaseService.testQuery({ database });
+    case CommandContract.TestQueryCommand.name:
+      await databaseService.testQuery({ database: db });
       break;
 
     case CommandContract.RunQueryCommand.name:
-      await databaseService.runQuery({ database });
+      await databaseService.runQuery({ database: db });
       break;
   }
 };

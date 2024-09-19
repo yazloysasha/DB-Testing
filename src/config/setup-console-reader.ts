@@ -15,13 +15,13 @@ export const setupConsoleReader = (): void => {
     input: process.stdin,
   });
 
-  readlineInterface.on("line", (input) => {
+  readlineInterface.on("line", async (input) => {
     try {
       const command = commandService.getCommandFromLine(input);
 
       commandService.validateCommandArgs(command);
 
-      commandController(command);
+      await commandController(command);
     } catch (err) {
       console.error((err as Error).message);
     }
