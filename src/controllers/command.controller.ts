@@ -10,7 +10,7 @@ export const commandController = async (command: ICommand): Promise<void> => {
     DatabaseService.name
   );
 
-  const { db, t, c } = command.args;
+  const { db, t, c, n } = command.args;
 
   switch (command.name) {
     case CommandContract.FillTableCommand.name:
@@ -22,11 +22,7 @@ export const commandController = async (command: ICommand): Promise<void> => {
       break;
 
     case CommandContract.TestQueryCommand.name:
-      await databaseService.testQuery({ database: db });
-      break;
-
-    case CommandContract.RunQueryCommand.name:
-      await databaseService.runQuery({ database: db });
+      await databaseService.testQuery({ database: db, number: Number(n) });
       break;
   }
 };

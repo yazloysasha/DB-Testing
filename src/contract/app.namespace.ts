@@ -39,19 +39,10 @@ export namespace CommandContract {
         required: true,
         type: "string",
       },
-    ],
-  };
-
-  /**
-   * Выполнить любой запрос
-   */
-  export const RunQueryCommand: ICommandContractItem = {
-    name: CommandName.RUN_QUERY,
-    args: [
       {
-        name: "db",
+        name: "n",
         required: true,
-        type: "string",
+        type: "number",
       },
     ],
   };

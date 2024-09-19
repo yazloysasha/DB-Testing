@@ -10,7 +10,6 @@ export class CommandService {
    * Доступные команды
    */
   private commands: ICommandContractItem[] = [
-    CommandContract.RunQueryCommand,
     CommandContract.FillTableCommand,
     CommandContract.TestQueryCommand,
   ];
