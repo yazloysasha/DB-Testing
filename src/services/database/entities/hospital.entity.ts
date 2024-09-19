@@ -245,7 +245,7 @@ export const hospital: IDatabase = {
     },
 
     2: {
-      description: "Уменьшить количество кроватей в палате на 1",
+      description: "Уменьшить количество кроватей в первой палате на 1",
       query: async (sql) => {
         // Получить первую палату
         const [ward]: [{ hospitalId: number; number: number }] =
