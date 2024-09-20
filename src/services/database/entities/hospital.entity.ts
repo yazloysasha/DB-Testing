@@ -1,5 +1,5 @@
+import { appConfig } from "@main";
 import {
-  IDatabase,
   wardsTableFunction,
   staffTableFunction,
   testsTableFunction,
@@ -16,8 +16,8 @@ import {
   hospitalsPhoneNumbersTableFunction,
   hospitalsAndLaboratoriesTableFunction,
   laboratoriesPhoneNumbersTableFunction,
-} from "@services";
-import { appConfig } from "@main";
+} from "@services/database/helpers";
+import { IDatabase } from "@services/database";
 
 export const hospital: IDatabase = {
   name: "hospital",
