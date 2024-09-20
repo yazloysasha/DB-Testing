@@ -1,4 +1,4 @@
-import { getRandomItem } from "./helpers";
+import { getRandomItem } from "@utils";
 import { typesOfDiagnoses } from "@consts";
 
 /**

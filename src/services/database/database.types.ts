@@ -1,16 +1,19 @@
 import { Row, RowList, Sql } from "postgres";
 
+export type TableFunction = (sql: Sql<{}>) => Promise<Columns>;
+export type QueryFunction = (sql: Sql<{}>) => Promise<RowList<Row[]>>;
+
 export type Columns = {
   [Property in string]: string;
 };
 
 export type Tables = {
-  [Property in string]: (sql: Sql<{}>) => Promise<Columns>;
+  [Property in string]: TableFunction;
 };
 
 export interface IQuery {
   description: string;
-  query: (sql: Sql<{}>) => Promise<RowList<Row[]>>;
+  query: QueryFunction;
 }
 
 export type Queries = {

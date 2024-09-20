@@ -1,5 +1,5 @@
 import { specialties } from "@consts";
-import { getRandomItem } from "./helpers";
+import { getRandomItem } from "@utils";
 
 /**
  * Получить случайную специальность
