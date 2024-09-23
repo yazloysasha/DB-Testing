@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon -q",
-    "build": "tsc",
+    "build": "tsc && npx tsconfig-replace-paths -s ./src",
     "start": "node build/main.js"
   },
   "dependencies": {
