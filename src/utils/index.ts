@@ -7,4 +7,4 @@ export * from "./get-random-place-name";
 export * from "./get-random-surname";
 export * from "./get-random-time";
 export * from "./helpers";
-export * from "./hospital";
+export * from "./medicine";

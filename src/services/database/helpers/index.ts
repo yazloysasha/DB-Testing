@@ -1,1 +1,1 @@
-export * from "./hospital";
+export * from "./medicine";

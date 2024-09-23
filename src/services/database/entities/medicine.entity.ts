@@ -19,8 +19,8 @@ import {
 } from "@services/database/helpers";
 import { IDatabase } from "@services/database";
 
-export const hospital: IDatabase = {
-  name: "hospital",
+export const medicine: IDatabase = {
+  name: "medicine",
   url: appConfig.MEDICINE_DATABASE_URL as string,
   tables: {
     hospitals: hospitalsTableFunction,

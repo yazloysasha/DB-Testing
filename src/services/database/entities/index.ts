@@ -1,1 +1,1 @@
-export * from "./hospital.entity";
+export * from "./medicine.entity";

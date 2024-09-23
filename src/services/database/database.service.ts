@@ -1,4 +1,4 @@
-import { hospital } from "./entities";
+import { medicine } from "./entities";
 import { Columns, IDatabase } from "./database.types";
 import postgres, { Row, RowList, Sql } from "postgres";
 
@@ -9,7 +9,7 @@ export class DatabaseService {
   /**
    * Доступные базы данных
    */
-  databases: IDatabase[] = [hospital];
+  databases: IDatabase[] = [medicine];
 
   /**
    * Подключения к базам данных
