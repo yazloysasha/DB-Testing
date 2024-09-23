@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { IAppConfig } from "@types";
 
 export const appConfig = process.env as IAppConfig;
 
@@ -7,7 +8,6 @@ import {
   connectToDatabases,
   setupConsoleReader,
 } from "@config";
-import { IAppConfig } from "@types";
 
 const setupApp = (): void => {
   setupDIContainer();
