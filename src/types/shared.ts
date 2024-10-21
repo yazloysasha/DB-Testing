@@ -1,5 +1,6 @@
 export interface IAppConfig {
   MEDICINE_DATABASE_URL?: string;
+  CRO_DATABASE_URL?: string;
 }
 
 export enum CommandName {
