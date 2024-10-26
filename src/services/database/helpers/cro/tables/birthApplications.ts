@@ -40,7 +40,7 @@ export const birthApplicationsTableFunction: TableFunction = async (sql) => {
     const result =
       await sql`SELECT id, surname FROM people WHERE sex = ${Sex.FEMALE} ORDER BY RANDOM() LIMIT 1`;
 
-    mother = result[0] as { id: number; surname: string };
+    mother = result[0] as typeof mother;
   }
 
   // С шансом 80% получить случайного отца
@@ -48,7 +48,7 @@ export const birthApplicationsTableFunction: TableFunction = async (sql) => {
     const result =
       await sql`SELECT id, name, surname FROM people WHERE sex = ${Sex.MALE} ORDER BY RANDOM() LIMIT 1`;
 
-    father = result[0] as { id: number; name: string; surname: string };
+    father = result[0] as typeof father;
   }
 
   const gender = getGenderBySex(child.sex);
