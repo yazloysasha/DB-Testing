@@ -44,6 +44,16 @@ export enum Shift {
   NIGHT = "NIGHT",
 }
 
+export enum ApplicationType {
+  BIRTH = "BIRTH",
+  MARRIAGE = "MARRIAGE",
+  DIVORCE = "DIVORCE",
+  NAME_CHANGE = "NAME_CHANGE",
+  FILIATION = "FILIATION",
+  ADOPTION = "ADOPTION",
+  DEATH = "DEATH",
+}
+
 export interface ISexAndGender {
   sex: Sex;
   gender: Gender.MASCULINE | Gender.FEMININE;

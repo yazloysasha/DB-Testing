@@ -1,5 +1,5 @@
-import { ISexAndGender } from "@types";
-import { sexesAndGenders } from "@consts";
+import { Gender, ISexAndGender, Sex } from "@types";
+import { names, patronymics, sexesAndGenders, surnames } from "@consts";
 
 /**
  * Получить случайное целое число в заданном интервале
@@ -27,4 +27,49 @@ export const getRandomItem = <T>(array: T[]): T => {
  */
 export const getRandomSexAndGender = (): ISexAndGender => {
   return getRandomItem(sexesAndGenders);
+};
+
+/**
+ * Получить род по полу
+ */
+export const getSexByGender = (
+  gender: Gender.MASCULINE | Gender.FEMININE
+): Sex => {
+  const sexAndGender = sexesAndGenders.find(
+    (sexAndGender) => gender === sexAndGender.gender
+  );
+
+  return sexAndGender.sex;
+};
+
+/**
+ * Получить пол по роду
+ */
+export const getGenderBySex = (
+  sex: Sex
+): Gender.MASCULINE | Gender.FEMININE => {
+  const sexAndGender = sexesAndGenders.find(
+    (sexAndGender) => sex === sexAndGender.sex
+  );
+
+  return sexAndGender.gender;
+};
+
+/**
+ * Получить информацию о фамилии
+ */
+export const getSurnameData = (
+  surname: string,
+  gender: Gender.MASCULINE | Gender.FEMININE
+) => {
+  return surnames.find((surnameData) => surname === surnameData[gender]);
+};
+
+/**
+ * Получить ифнормацию об отчестве
+ */
+export const getPatronymicData = (name: string) => {
+  return patronymics[
+    names.findIndex((nameData) => name === nameData[Gender.MASCULINE])
+  ];
 };

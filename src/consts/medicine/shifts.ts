@@ -3,4 +3,4 @@ import { Shift } from "@types";
 /**
  * Рабочие смены
  */
-export const shifts: Shift[] = [Shift.MORNING, Shift.EVENING, Shift.NIGHT];
+export const shifts: Shift[] = Object.values(Shift);

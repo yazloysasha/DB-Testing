@@ -16,7 +16,7 @@ import {
   hospitalsPhoneNumbersTableFunction,
   hospitalsAndLaboratoriesTableFunction,
   laboratoriesPhoneNumbersTableFunction,
-} from "@services/database/helpers";
+} from "@services/database/helpers/medicine";
 import { IDatabase } from "@services/database";
 
 export const medicine: IDatabase = {
