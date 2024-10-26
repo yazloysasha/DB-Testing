@@ -1,7 +1,7 @@
 import {
   getRandomJob,
   getRandomShift,
-  getRandomNumber,
+  getRandomInteger,
   getRandomSurname,
   getRandomSexAndGender,
 } from "@utils";
@@ -25,6 +25,6 @@ export const staffTableFunction: TableFunction = async (sql) => {
     surname: getRandomSurname(sexAndGender.gender),
     job: getRandomJob(),
     shift: getRandomShift(),
-    salary: getRandomNumber(0, 20000),
+    salary: String(getRandomInteger(0, 20000)),
   };
 };

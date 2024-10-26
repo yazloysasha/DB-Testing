@@ -1,5 +1,5 @@
 import {
-  getRandomNumber,
+  getRandomInteger,
   getRandomAddress,
   getRandomSurname,
   getRandomBirthday,
@@ -14,11 +14,11 @@ export const patientsTableFunction: TableFunction = async () => {
   const sexAndGender = getRandomSexAndGender();
 
   return {
-    registrationNumber: getRandomNumber(0, 1000),
+    registrationNumber: String(getRandomInteger(0, 1000)),
     surname: getRandomSurname(sexAndGender.gender),
     address: getRandomAddress(),
     birthday: getRandomBirthday(),
     sex: sexAndGender.sex,
-    medicalPolicyNumber: getRandomNumber(0, 1000),
+    medicalPolicyNumber: String(getRandomInteger(0, 1000)),
   };
 };

@@ -1,4 +1,4 @@
-import { getRandomNumber } from "@utils";
+import { getRandomInteger } from "@utils";
 import { TableFunction } from "@services";
 
 /**
@@ -20,7 +20,7 @@ export const placementsTableFunction: TableFunction = async (sql) => {
   return {
     hospitalId: String(ward.hospitalId),
     wardNumber: String(ward.number),
-    bedNumber: getRandomNumber(0, 20),
+    bedNumber: String(getRandomInteger(0, 20)),
     patientRegistrationNumber: String(patient.registrationNumber),
   };
 };

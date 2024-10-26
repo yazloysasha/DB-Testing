@@ -1,6 +1,6 @@
 import {
   getRandomTime,
-  getRandomNumber,
+  getRandomInteger,
   getRandomFutureDate,
   getRandomAnalysisType,
   getRandomAnalysisStatus,
@@ -29,7 +29,7 @@ export const testsTableFunction: TableFunction = async (sql) => {
     type: getRandomAnalysisType(),
     appointedDate: getRandomFutureDate(),
     appointedTime: getRandomTime(),
-    referralNumber: getRandomNumber(0, 1000),
+    referralNumber: String(getRandomInteger(0, 1000)),
     status: getRandomAnalysisStatus(),
   };
 };

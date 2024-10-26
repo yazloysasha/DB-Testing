@@ -4,7 +4,6 @@ export * from "./get-random-alt-date";
 export * from "./get-random-birthday";
 export * from "./get-random-future-date";
 export * from "./get-random-name";
-export * from "./get-random-number";
 export * from "./get-random-patronymic";
 export * from "./get-random-phone-number";
 export * from "./get-random-place-name";

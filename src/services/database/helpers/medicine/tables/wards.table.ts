@@ -1,6 +1,6 @@
 import { Gender } from "@types";
 import { TableFunction } from "@services";
-import { getRandomNumber, getRandomPlaceName } from "@utils";
+import { getRandomInteger, getRandomPlaceName } from "@utils";
 
 /**
  * Палаты
@@ -14,8 +14,8 @@ export const wardsTableFunction: TableFunction = async (sql) => {
 
   return {
     hospitalId: String(hospital.id),
-    number: getRandomNumber(0, 10),
+    number: String(getRandomInteger(0, 10)),
     name: getRandomPlaceName("палата", Gender.FEMININE),
-    countOfBeds: getRandomNumber(0, 10),
+    countOfBeds: String(getRandomInteger(0, 10)),
   };
 };
