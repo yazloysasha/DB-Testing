@@ -19,10 +19,12 @@ export const divorceApplicationsTableFunction: TableFunction = async (sql) => {
 
   if (!application) {
     throw Error(
-      `Table "applications" with "${ApplicationType.MARRIAGE}" type is empty`
+      `Table "applications" with "${ApplicationType.DIVORCE}" type is empty`
     );
   }
-  if (!marriageApplication) throw Error('Table "marriageApplication" is empty');
+  if (!marriageApplication) {
+    throw Error('Table "marriageApplications" is empty');
+  }
 
   return {
     applicationId: String(application.id),
