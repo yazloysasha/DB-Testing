@@ -1,5 +1,5 @@
 import { TableFunction } from "@services";
-import { getAltDate, getRandomApplicationType } from "@utils";
+import { getRandomAltDate, getRandomApplicationType } from "@utils";
 
 /**
  * Заявления
@@ -20,7 +20,7 @@ export const applicationsTableFunction: TableFunction = async (sql) => {
   return {
     officeId: String(office.id),
     submissionEmployeeId: String(employee.id),
-    submissionDate: getAltDate(),
+    submissionDate: getRandomAltDate("now"),
     type: getRandomApplicationType(),
   };
 };

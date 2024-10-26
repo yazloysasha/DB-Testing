@@ -1,10 +1,10 @@
 import {
-  getAltDate,
   getRandomName,
   getGenderBySex,
   getSurnameData,
   getRandomSurname,
   getRandomAddress,
+  getRandomAltDate,
   getPatronymicData,
 } from "@utils";
 import { TableFunction } from "@services";
@@ -64,6 +64,6 @@ export const birthApplicationsTableFunction: TableFunction = async (sql) => {
       : getRandomSurname(gender),
     childPatronymic: father ? getPatronymicData(father.name)[gender] : null,
     childBirthPlace: getRandomAddress(),
-    childBirthDate: getAltDate(),
+    childBirthDate: getRandomAltDate("past"),
   };
 };

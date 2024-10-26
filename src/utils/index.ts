@@ -1,6 +1,6 @@
 export * from "./cro";
-export * from "./get-alt-date";
 export * from "./get-random-address";
+export * from "./get-random-alt-date";
 export * from "./get-random-birthday";
 export * from "./get-random-future-date";
 export * from "./get-random-name";

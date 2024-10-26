@@ -1,5 +1,13 @@
 import { Gender, ISexAndGender, Sex } from "@types";
-import { names, patronymics, sexesAndGenders, surnames } from "@consts";
+import {
+  altTimeStartDate,
+  names,
+  patronymics,
+  realTimeStartDate,
+  sexesAndGenders,
+  surnames,
+  timeSpeedModifier,
+} from "@consts";
 
 /**
  * Получить случайное целое число в заданном интервале
@@ -20,6 +28,16 @@ export const getRandomIndex = <T>(array: T[]): number => {
  */
 export const getRandomItem = <T>(array: T[]): T => {
   return array[getRandomIndex(array)];
+};
+
+/**
+ * Получить альтернативную дату
+ */
+export const getAltDate = (realDate: Date): Date => {
+  const delta =
+    +realDate * timeSpeedModifier - +realTimeStartDate * timeSpeedModifier;
+
+  return new Date(+altTimeStartDate + delta);
 };
 
 /**
