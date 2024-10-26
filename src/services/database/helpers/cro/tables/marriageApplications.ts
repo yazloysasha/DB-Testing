@@ -34,8 +34,8 @@ export const marriageApplicationsTableFunction: TableFunction = async (sql) => {
         ? getSurnameData(husband.surname, Gender.MASCULINE)[Gender.FEMININE]
         : null,
     husbandSurname:
-      Math.random() < 0.8
-        ? null
-        : getSurnameData(wife.surname, Gender.FEMININE)[Gender.MASCULINE],
+      Math.random() < 0.2
+        ? getSurnameData(wife.surname, Gender.FEMININE)[Gender.MASCULINE]
+        : null,
   };
 };
