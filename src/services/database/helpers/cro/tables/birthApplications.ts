@@ -14,8 +14,7 @@ import { ApplicationType, Gender, Sex } from "@types";
  * Заявления на рождение
  */
 export const birthApplicationsTableFunction: TableFunction = async (sql) => {
-  // Получить случайное заявление на рождение и 3 случайных людей
-  let result = await Promise.all([
+  const result = await Promise.all([
     // Получить случайное заявление на рождение
     sql`SELECT id FROM applications WHERE type = ${ApplicationType.BIRTH} ORDER BY RANDOM() LIMIT 1`,
 
