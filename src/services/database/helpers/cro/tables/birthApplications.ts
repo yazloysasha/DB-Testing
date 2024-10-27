@@ -66,6 +66,6 @@ export const birthApplicationsTableFunction: TableFunction = async (sql) => {
       ? getPatronymicData(father.name)[gender]
       : null,
     childBirthPlace: getRandomAddress(),
-    childBirthDate: getRandomAltDate("past"),
+    childBirthDate: getRandomAltDate("past", false, 18),
   };
 };

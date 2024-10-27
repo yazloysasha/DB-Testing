@@ -65,6 +65,7 @@ export const adoptionApplicationsTableFunction: TableFunction = async (sql) => {
       ? getPatronymicData(father.name)[gender]
       : null,
     childBirthPlace: Math.random() < 0.2 ? getRandomAddress() : null,
-    childBirthDate: Math.random() < 0.2 ? getRandomAltDate("past") : null,
+    childBirthDate:
+      Math.random() < 0.2 ? getRandomAltDate("past", false, 18) : null,
   };
 };
