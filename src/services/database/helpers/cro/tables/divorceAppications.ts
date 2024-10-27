@@ -8,7 +8,7 @@ export const divorceApplicationsTableFunction: TableFunction = async (sql) => {
   // Получить случайное заявление на расторжение брака и случайный брак
   const result = await Promise.all([
     sql`SELECT id FROM applications WHERE type = ${ApplicationType.DIVORCE} ORDER BY RANDOM() LIMIT 1`,
-    sql`SELECT wifeId, husbandId FROM "marriageApplications" ORDER BY RANDOM() LIMIT 1`,
+    sql`SELECT "wifeId", "husbandId" FROM "marriageApplications" ORDER BY RANDOM() LIMIT 1`,
   ]);
 
   const application = result[0][0] as { id: number };
