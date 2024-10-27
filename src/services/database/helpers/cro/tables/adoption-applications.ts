@@ -2,7 +2,6 @@ import {
   getRandomName,
   getGenderBySex,
   getSurnameData,
-  getRandomSurname,
   getRandomAddress,
   getRandomAltDate,
   getPatronymicData,
@@ -11,13 +10,13 @@ import { TableFunction } from "@services";
 import { ApplicationType, Gender, Sex } from "@types";
 
 /**
- * Заявления на рождение
+ * Заявления на усыновление/удочерение
  */
-export const birthApplicationsTableFunction: TableFunction = async (sql) => {
-  // Получить случайное заявление на рождение и случайного нерождённого ребёнка
+export const adoptionApplicationsTableFunction: TableFunction = async (sql) => {
+  // Получить случайное заявление на усыновление/удочерение и случайного ребёнка
   const result = await Promise.all([
-    sql`SELECT id FROM applications WHERE type = ${ApplicationType.BIRTH} ORDER BY RANDOM() LIMIT 1`,
-    sql`SELECT id, sex FROM people WHERE alive IS NULL ORDER BY RANDOM() LIMIT 1`,
+    sql`SELECT id FROM applications WHERE type = ${ApplicationType.ADOPTION} ORDER BY RANDOM() LIMIT 1`,
+    sql`SELECT id, sex FROM people ORDER BY RANDOM() LIMIT 1`,
   ]);
 
   const application = result[0][0] as { id: number };
@@ -25,10 +24,10 @@ export const birthApplicationsTableFunction: TableFunction = async (sql) => {
 
   if (!application) {
     throw Error(
-      `Table "applications" with "${ApplicationType.BIRTH}" type is empty`
+      `Table "applications" with "${ApplicationType.ADOPTION}" type is empty`
     );
   }
-  if (!child) throw Error('Table "people" with NULL alive is empty');
+  if (!child) throw Error('Table "people" is empty');
 
   let mother: { id: number; surname: string };
   let father: { id: number; name: string; surname: string };
@@ -56,16 +55,17 @@ export const birthApplicationsTableFunction: TableFunction = async (sql) => {
     childId: String(child.id),
     motherId: mother ? String(mother.id) : null,
     fatherId: father ? String(father.id) : null,
-    childName: getRandomName(gender),
-    childSurname: father?.surname
-      ? getSurnameData(father.surname, Gender.MASCULINE)[gender]
-      : mother?.surname
-      ? getSurnameData(mother.surname, Gender.FEMININE)[gender]
-      : getRandomSurname(gender),
-    childPatronymic: father?.name
-      ? getPatronymicData(father.name)[gender]
-      : null,
-    childBirthPlace: getRandomAddress(),
-    childBirthDate: getRandomAltDate("past", false, 18),
+    childName: Math.random() < 0.5 ? getRandomName(gender) : null,
+    childSurname:
+      (father?.surname &&
+        getSurnameData(father.surname, Gender.MASCULINE)?.[gender]) ||
+      (mother?.surname &&
+        getSurnameData(mother.surname, Gender.FEMININE)?.[gender]) ||
+      null,
+    childPatronymic:
+      (father?.name && getPatronymicData(father.name)?.[gender]) || null,
+    childBirthPlace: Math.random() < 0.2 ? getRandomAddress() : null,
+    childBirthDate:
+      Math.random() < 0.2 ? getRandomAltDate("past", false, 18) : null,
   };
 };

@@ -84,7 +84,7 @@ export const getSurnameData = (
 };
 
 /**
- * Получить ифнормацию об отчестве
+ * Получить информацию об отчестве
  */
 export const getPatronymicData = (name: string) => {
   return patronymics[
