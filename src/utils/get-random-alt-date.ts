@@ -1,6 +1,8 @@
 import { timeSpeedModifier } from "@consts";
 import { getAltDate, getRandomInteger } from "./helpers";
 
+const tenYears = (1000 * 60 * 60 * 24 * 365 * 10) / timeSpeedModifier;
+
 /**
  * Получить случайную альтернативную дату
  */
@@ -9,11 +11,11 @@ export const getRandomAltDate = (mode: "past" | "now" | "future"): string => {
 
   switch (mode) {
     case "past":
-      time -= getRandomInteger(0, timeSpeedModifier * 365 * 10);
+      time -= getRandomInteger(0, tenYears);
       break;
 
     case "future":
-      time += getRandomInteger(0, timeSpeedModifier * 365 * 10);
+      time += getRandomInteger(0, tenYears);
       break;
   }
 
