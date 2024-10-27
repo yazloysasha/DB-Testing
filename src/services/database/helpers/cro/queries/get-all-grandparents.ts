@@ -1,7 +1,7 @@
 import { QueryFunction } from "@services";
 
 /**
- * Получить всех бабушек и дедушек гражданина
+ * Получить всех бабушек и дедушек человека
  */
 export const getAllGrandparentsQueryFunction: QueryFunction = async (sql) => {
   const personId = 316;

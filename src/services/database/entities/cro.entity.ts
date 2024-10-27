@@ -6,6 +6,7 @@ import {
   officesTableFunction,
   citizensTableFunction,
   applicationsTableFunction,
+  getYoungPersonQueryFunction,
   birthApplicationsTableFunction,
   deathApplicationsTableFunction,
   rejectApplicationQueryFunction,
@@ -58,6 +59,10 @@ export const cro: IDatabase = {
     3: {
       description: "Получить всех бабушек и дедушек человека",
       query: getAllGrandparentsQueryFunction,
+    },
+    4: {
+      description: "Получить самого молодого человека",
+      query: getYoungPersonQueryFunction,
     },
   },
 };

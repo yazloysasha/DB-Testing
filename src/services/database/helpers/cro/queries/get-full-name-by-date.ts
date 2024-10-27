@@ -1,7 +1,7 @@
 import { QueryFunction } from "@services";
 
 /**
- * Получить ФИО гражданина в определённую дату
+ * Получить ФИО человека в определённую дату
  */
 export const getFullNameByDateQueryFunction: QueryFunction = async (sql) => {
   const personId = 314;
