@@ -18,6 +18,7 @@ import {
   marriageApplicationsTableFunction,
   adoptionApplicationsTableFunction,
   filiationApplicationsTableFunction,
+  getPopularApplicationQueryFunction,
   nameChangeApplicationsTableFunction,
   citizensAndApplicationsTableFunction,
 } from "@services/database/helpers/cro";
@@ -63,6 +64,10 @@ export const cro: IDatabase = {
     4: {
       description: "Получить самого молодого человека",
       query: getYoungPersonQueryFunction,
+    },
+    5: {
+      description: "Получить самое популярное заявление за указанный период",
+      query: getPopularApplicationQueryFunction,
     },
   },
 };
