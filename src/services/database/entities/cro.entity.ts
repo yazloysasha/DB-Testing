@@ -9,6 +9,7 @@ import {
   birthApplicationsTableFunction,
   deathApplicationsTableFunction,
   rejectApplicationQueryFunction,
+  satisfyApplicationQueryFunction,
   divorceApplicationsTableFunction,
   supportingDocumentsTableFunction,
   marriageApplicationsTableFunction,
@@ -43,6 +44,10 @@ export const cro: IDatabase = {
     0: {
       description: "Отклонить случайное заявление",
       query: rejectApplicationQueryFunction,
+    },
+    1: {
+      description: "Удовлетворить случайное заявление",
+      query: satisfyApplicationQueryFunction,
     },
   },
 };
