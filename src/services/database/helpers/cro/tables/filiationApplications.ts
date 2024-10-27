@@ -39,7 +39,9 @@ export const filiationApplicationsTableFunction: TableFunction = async (
     childId: String(child.id),
     fatherId: String(father.id),
     childName: Math.random() < 0.5 ? getRandomName(gender) : null,
-    childSurname: getSurnameData(father.surname, Gender.MASCULINE)[gender],
+    childSurname: father.surname
+      ? getSurnameData(father.surname, Gender.MASCULINE)[gender]
+      : null,
     childPatronymic: getPatronymicData(father.name)[gender],
   };
 };

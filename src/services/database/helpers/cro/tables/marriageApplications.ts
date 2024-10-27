@@ -30,11 +30,11 @@ export const marriageApplicationsTableFunction: TableFunction = async (sql) => {
     wifeId: String(wife.id),
     husbandId: String(husband.id),
     wifeSurname:
-      Math.random() < 0.8
+      husband.surname && Math.random() < 0.8
         ? getSurnameData(husband.surname, Gender.MASCULINE)[Gender.FEMININE]
         : null,
     husbandSurname:
-      Math.random() < 0.2
+      wife.surname && Math.random() < 0.2
         ? getSurnameData(wife.surname, Gender.FEMININE)[Gender.MASCULINE]
         : null,
   };

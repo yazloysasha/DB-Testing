@@ -57,12 +57,14 @@ export const birthApplicationsTableFunction: TableFunction = async (sql) => {
     motherId: mother ? String(mother.id) : null,
     fatherId: father ? String(father.id) : null,
     childName: getRandomName(gender),
-    childSurname: father
+    childSurname: father?.surname
       ? getSurnameData(father.surname, Gender.MASCULINE)[gender]
-      : mother
+      : mother?.surname
       ? getSurnameData(mother.surname, Gender.FEMININE)[gender]
       : getRandomSurname(gender),
-    childPatronymic: father ? getPatronymicData(father.name)[gender] : null,
+    childPatronymic: father?.name
+      ? getPatronymicData(father.name)[gender]
+      : null,
     childBirthPlace: getRandomAddress(),
     childBirthDate: getRandomAltDate("past"),
   };
