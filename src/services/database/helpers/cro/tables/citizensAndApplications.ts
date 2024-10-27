@@ -83,11 +83,11 @@ export const citizensAndApplicationsTableFunction: TableFunction = async (
 
     case ApplicationType.BIRTH:
     case ApplicationType.DEATH:
-      // Получить случайного человека
+      // Получить случайного гражданина
       const [person]: [{ id: number }] =
-        await sql`SELECT id FROM people ORDER BY RANDOM() LIMIT 1`;
+        await sql`SELECT id FROM citizens ORDER BY RANDOM() LIMIT 1`;
 
-      if (!person) throw Error('Table "people" is empty');
+      if (!person) throw Error('Table "citizens" is empty');
 
       citizenId = person.id;
       break;
