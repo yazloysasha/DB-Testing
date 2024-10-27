@@ -9,7 +9,9 @@ import {
   birthApplicationsTableFunction,
   deathApplicationsTableFunction,
   rejectApplicationQueryFunction,
+  getFullNameByDateQueryFunction,
   satisfyApplicationQueryFunction,
+  getAllGrandparentsQueryFunction,
   divorceApplicationsTableFunction,
   supportingDocumentsTableFunction,
   marriageApplicationsTableFunction,
@@ -17,7 +19,6 @@ import {
   filiationApplicationsTableFunction,
   nameChangeApplicationsTableFunction,
   citizensAndApplicationsTableFunction,
-  getFullNameByDateQueryFunction,
 } from "@services/database/helpers/cro";
 import { IDatabase } from "@services/database";
 
@@ -53,6 +54,10 @@ export const cro: IDatabase = {
     2: {
       description: "Получить ФИО человека в указанную дату",
       query: getFullNameByDateQueryFunction,
+    },
+    3: {
+      description: "Получить всех бабушек и дедушек человека",
+      query: getAllGrandparentsQueryFunction,
     },
   },
 };
