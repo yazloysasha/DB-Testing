@@ -12,8 +12,8 @@ export const decreaseCountOfBedsQueryFunction: QueryFunction = async (sql) => {
 
   return sql`
     UPDATE wards
-      SET "countOfBeds" = "countOfBeds" - 1
-      WHERE "hospitalId" = ${ward.hospitalId} AND number = ${ward.number}
+    SET "countOfBeds" = "countOfBeds" - 1
+    WHERE "hospitalId" = ${ward.hospitalId} AND number = ${ward.number}
     RETURNING *
   `;
 };
