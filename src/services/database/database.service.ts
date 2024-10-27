@@ -60,15 +60,19 @@ export class DatabaseService {
     const output: (Columns | string | Row)[][] = [];
 
     for (let i = 0; i < count; i++) {
-      const columns = await tableModel(sql);
-      output.push([columns]);
+      try {
+        const columns = await tableModel(sql);
+        output.push([columns]);
 
-      promises.push(
-        sql`
+        promises.push(
+          sql`
           INSERT INTO ${sql(table)} ${sql(columns)}
           RETURNING *
         `
-      );
+        );
+      } catch (err) {
+        console.error((err as Error).message);
+      }
     }
 
     let i = 0;
