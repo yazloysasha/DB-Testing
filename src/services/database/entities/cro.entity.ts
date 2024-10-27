@@ -19,7 +19,7 @@ import {
 import { IDatabase } from "@services/database";
 
 export const cro: IDatabase = {
-  name: "medicine",
+  name: "cro",
   url: appConfig.CRO_DATABASE_URL as string,
   tables: {
     offices: officesTableFunction,
