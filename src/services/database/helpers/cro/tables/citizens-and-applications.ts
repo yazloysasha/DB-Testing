@@ -40,8 +40,8 @@ export const citizensAndApplicationsTableFunction: TableFunction = async (
 
       citizenId =
         Math.random() < 0.5
-          ? marriageApplication.wifeId
-          : marriageApplication.husbandId;
+          ? divorceApplication.wifeId
+          : divorceApplication.husbandId;
       break;
 
     case ApplicationType.NAME_CHANGE:

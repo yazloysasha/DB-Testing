@@ -17,6 +17,7 @@ import {
   filiationApplicationsTableFunction,
   nameChangeApplicationsTableFunction,
   citizensAndApplicationsTableFunction,
+  getFullNameByDateQueryFunction,
 } from "@services/database/helpers/cro";
 import { IDatabase } from "@services/database";
 
@@ -48,6 +49,10 @@ export const cro: IDatabase = {
     1: {
       description: "Удовлетворить случайное заявление",
       query: satisfyApplicationQueryFunction,
+    },
+    2: {
+      description: "Получить ФИО человека в указанную дату",
+      query: getFullNameByDateQueryFunction,
     },
   },
 };
