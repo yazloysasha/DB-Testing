@@ -8,6 +8,7 @@ import {
   applicationsTableFunction,
   birthApplicationsTableFunction,
   deathApplicationsTableFunction,
+  rejectApplicationQueryFunction,
   divorceApplicationsTableFunction,
   supportingDocumentsTableFunction,
   marriageApplicationsTableFunction,
@@ -38,5 +39,10 @@ export const cro: IDatabase = {
     supportingDocuments: supportingDocumentsTableFunction,
     acts: actsTableFunction,
   },
-  queries: {},
+  queries: {
+    0: {
+      description: "Отклонить случайное заявление",
+      query: rejectApplicationQueryFunction,
+    },
+  },
 };

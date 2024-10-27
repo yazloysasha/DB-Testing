@@ -54,6 +54,12 @@ export enum ApplicationType {
   DEATH = "DEATH",
 }
 
+export enum ApplicationStatus {
+  WAITING = "WAITING",
+  REJECTED = "REJECTED",
+  SATISFIED = "SATISFIED",
+}
+
 export interface ISexAndGender {
   sex: Sex;
   gender: Gender.MASCULINE | Gender.FEMININE;
