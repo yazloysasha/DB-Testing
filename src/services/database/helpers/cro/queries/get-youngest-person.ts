@@ -3,7 +3,7 @@ import { QueryFunction } from "@services";
 /**
  * Получить самого молодого человека
  */
-export const getYoungPersonQueryFunction: QueryFunction = async (sql) => {
+export const getYoungestPersonQueryFunction: QueryFunction = async (sql) => {
   return sql`
     WITH "peopleWithBirthDate" AS (
       SELECT name, surname, patronymic, (

@@ -3,7 +3,7 @@ import { QueryFunction } from "@services";
 /**
  * Получить самый популярный тип заявлений за указанный период
  */
-export const getPopularApplicationQueryFunction: QueryFunction = async (
+export const getMostPopularApplicationQueryFunction: QueryFunction = async (
   sql
 ) => {
   const startDate = "1184-04-25";

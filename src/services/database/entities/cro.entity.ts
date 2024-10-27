@@ -6,21 +6,22 @@ import {
   officesTableFunction,
   citizensTableFunction,
   applicationsTableFunction,
-  getYoungPersonQueryFunction,
   birthApplicationsTableFunction,
   deathApplicationsTableFunction,
   rejectApplicationQueryFunction,
   getFullNameByDateQueryFunction,
+  getYoungestPersonQueryFunction,
   satisfyApplicationQueryFunction,
   getAllGrandparentsQueryFunction,
+  getLongestMarriageQueryFunction,
   divorceApplicationsTableFunction,
   supportingDocumentsTableFunction,
   marriageApplicationsTableFunction,
   adoptionApplicationsTableFunction,
   filiationApplicationsTableFunction,
-  getPopularApplicationQueryFunction,
   nameChangeApplicationsTableFunction,
   citizensAndApplicationsTableFunction,
+  getMostPopularApplicationQueryFunction,
 } from "@services/database/helpers/cro";
 import { IDatabase } from "@services/database";
 
@@ -63,11 +64,15 @@ export const cro: IDatabase = {
     },
     4: {
       description: "Получить самого молодого человека",
-      query: getYoungPersonQueryFunction,
+      query: getYoungestPersonQueryFunction,
     },
     5: {
       description: "Получить самое популярное заявление за указанный период",
-      query: getPopularApplicationQueryFunction,
+      query: getMostPopularApplicationQueryFunction,
+    },
+    6: {
+      description: "Получить супругов самого длительного брака за всё время",
+      query: getLongestMarriageQueryFunction,
     },
   },
 };
