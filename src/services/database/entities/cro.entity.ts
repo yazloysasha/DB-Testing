@@ -6,7 +6,6 @@ import {
   officesTableFunction,
   citizensTableFunction,
   applicationsTableFunction,
-  addAncestorsQueryFunction,
   birthApplicationsTableFunction,
   deathApplicationsTableFunction,
   rejectApplicationQueryFunction,
@@ -43,14 +42,10 @@ export const cro: IDatabase = {
   },
   queries: {
     0: {
-      description: "Добавить прародителей всего рода человеческого",
-      query: addAncestorsQueryFunction,
-    },
-    1: {
       description: "Отклонить случайное заявление",
       query: rejectApplicationQueryFunction,
     },
-    2: {
+    1: {
       description: "Удовлетворить случайное заявление",
       query: satisfyApplicationQueryFunction,
     },
