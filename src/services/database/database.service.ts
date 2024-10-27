@@ -55,44 +55,22 @@ export class DatabaseService {
     if (!tableModel) throw Error(`Unknown table: ${table}`);
 
     const sql = this.sql[database];
-    const promises: Promise<RowList<Row[]>>[] = [];
-
-    const output: (Columns | string | Row)[][] = [];
 
     for (let i = 0; i < count; i++) {
-      try {
-        const columns = await tableModel(sql);
-        output.push([columns]);
+      let columns: Columns;
 
-        promises.push(
-          sql`
+      try {
+        columns = await tableModel(sql);
+
+        const [output] = await sql`
           INSERT INTO ${sql(table)} ${sql(columns)}
           RETURNING *
-        `
-        );
+        `;
+
+        console.log(columns, "->", output);
       } catch (err) {
-        console.error((err as Error).message);
+        console.error(columns, "->", (err as Error).message);
       }
-    }
-
-    let i = 0;
-
-    for (const result of await Promise.allSettled(promises)) {
-      switch (result.status) {
-        case "rejected":
-          output[i].push((result.reason as Error).message);
-          break;
-
-        case "fulfilled":
-          output[i].push(result.value[0]);
-          break;
-      }
-
-      i++;
-    }
-
-    for (const [start, finish] of output) {
-      console.log(start, "->", finish);
     }
   }
 
