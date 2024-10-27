@@ -16,7 +16,7 @@ export const getYoungPersonQueryFunction: QueryFunction = async (sql) => {
       ) AS "birthDate"
       FROM people
     )
-    SELECT name, surname, patronymic
+    SELECT name, surname, patronymic, "birthDate"
     FROM "peopleWithBirthDate"
     WHERE "birthDate" IS NOT NULL
     ORDER BY "birthDate" DESC
