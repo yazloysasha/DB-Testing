@@ -7,7 +7,7 @@ import { getRandomAltDate, getRandomInteger } from "@utils";
 export const actsTableFunction: TableFunction = async (sql) => {
   // Получить случайное заявление и случайного сотрудника
   const result = await Promise.all([
-    sql`SELECT id FROM applications WHERE ORDER BY RANDOM() LIMIT 1`,
+    sql`SELECT id FROM applications ORDER BY RANDOM() LIMIT 1`,
     sql`SELECT "personId" FROM staff ORDER BY RANDOM() LIMIT 1`,
   ]);
 
