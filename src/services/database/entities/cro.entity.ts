@@ -59,7 +59,7 @@ export const cro: IDatabase = {
       query: getFullNameByDateQueryFunction,
     },
     3: {
-      description: "Получить всех бабушек и дедушек человека",
+      description: "Получить всех биологических бабушек и дедушек человека",
       query: getAllGrandparentsQueryFunction,
     },
     4: {
